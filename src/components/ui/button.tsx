@@ -5,9 +5,9 @@ import { Divide, X, Minus, Plus, Delete } from "lucide-react";
 
 interface ButtonProps {
   input: string;
-  setInput: (value: string) => void;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
   result: string;
-  setResult: (value: string) => void;
+  setResult: React.Dispatch<React.SetStateAction<string>>;
   calculate: (expression: string) => void;
   isDegrees: boolean;
   setIsDegrees: (value: boolean) => void;
@@ -79,7 +79,7 @@ export default function Button({
         setIsDegrees(!isDegrees);
         break;
       case "DEL":
-        setInput(prev => prev.slice(0, -1));
+        setInput((prev: string) => prev.slice(0, -1));
         break;
       case "=":
         if (input) {
@@ -94,24 +94,24 @@ export default function Button({
         }
         break;
       case "×":
-        setInput(prev => prev + "*");
+        setInput((prev: string) => prev + "*");
         break;
       case "÷":
-        setInput(prev => prev + "/");
+        setInput((prev: string) => prev + "/");
         break;
       case "π":
-        setInput(prev => prev + "pi");
+        setInput((prev: string) => prev + "pi");
         break;
       case "e":
-        setInput(prev => prev + "e");
+        setInput((prev: string) => prev + "e");
         break;
       case "sin":
       case "cos":
       case "tan":
-        setInput(prev => prev + value + "(");
+        setInput((prev: string) => prev + value + "(");
         break;
       default:
-        setInput(prev => prev + value);
+        setInput((prev: string) => prev + value);
     }
   };
 
