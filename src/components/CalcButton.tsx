@@ -134,7 +134,7 @@ export default function CalcButton({
         setIsDegrees(!isDegrees);
         break;
       case "DEL":
-        setInput(prev => prev.slice(0, -1));
+        setInput((prev: string) => prev.slice(0, -1));
         break;
       case "=":
         if (input) {
@@ -150,32 +150,32 @@ export default function CalcButton({
         }
         break;
       case "×":
-        setInput(prev => prev + "*");
+        setInput((prev: string) => prev + "*");
         break;
       case "÷":
-        setInput(prev => prev + "/");
+        setInput((prev: string) => prev + "/");
         break;
       case "π":
-        setInput(prev => prev + "pi");
+        setInput((prev: string) => prev + "pi");
         break;
       case "e":
-        setInput(prev => prev + "e");
+        setInput((prev: string) => prev + "e");
         break;
       case "sqrt":
-        setInput(prev => prev + "sqrt");
+        setInput((prev: string) => prev + "sqrt");
         break;
       case "Ans":
         if (previousAnswer) {
-          setInput(prev => prev + "Ans");
+          setInput((prev: string) => prev + "Ans");
         }
         break;
       case "sin":
       case "cos":
       case "tan":
-        setInput(prev => prev + value + "(");
+        setInput((prev: string) => prev + value + "(");
         break;
       default:
-        setInput(prev => prev + value);
+        setInput((prev: string) => prev + value);
     }
   };
 

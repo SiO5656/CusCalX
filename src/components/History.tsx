@@ -9,7 +9,7 @@ interface HistoryProps {
   setInput: (value: string) => void;
   setResult: (value: string) => void;
   setShowHistory: (value: boolean) => void;
-  setHistory: (history: HistoryItem[]) => void;
+  setHistory: (value: HistoryItem[]) => void;
 }
 
 export default function History({

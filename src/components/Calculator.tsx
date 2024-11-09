@@ -20,9 +20,9 @@ export default function Calculator() {
   const [selectedFormulaId, setSelectedFormulaId] = useState<string | null>(null);
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [formulas, setFormulas] = useState<CustomFormula[]>([]);
-  const [input, setInput] = useState("");
+  const [input, setInput] = useState<string>("");
   const [displayLines, setDisplayLines] = useState<string[]>([]);
-  const [result, setResult] = useState("");
+  const [result, setResult] = useState<string>("");
   const [resultUnit, setResultUnit] = useState<string>("");
   const [isDegrees, setIsDegrees] = useState(true);
   const [previousAnswer, setPreviousAnswer] = useState<string | null>(null);
