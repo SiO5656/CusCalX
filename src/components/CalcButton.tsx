@@ -6,9 +6,9 @@ import { useTheme } from "next-themes";
 
 interface CalcButtonProps {
   input: string;
-  setInput: (value: string) => void;
+  setInput: React.Dispatch<React.SetStateAction<string>>;
   result: string;
-  setResult: (value: string) => void;
+  setResult: React.Dispatch<React.SetStateAction<string>>;
   calculate: (expression: string) => void;
   isDegrees: boolean;
   setIsDegrees: (value: boolean) => void;
