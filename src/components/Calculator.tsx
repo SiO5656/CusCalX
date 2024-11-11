@@ -13,13 +13,20 @@ import type { HistoryItem, CustomFormula } from "@/lib/types";
 
 const VARIABLE_VALUES_KEY = "calculator_variable_values";
 const MAX_DISPLAY_LINES = 5;
+const FORMULAS_STORAGE_KEY = 'calculator_formulas';
 
 export default function Calculator() {
   const [showHistory, setShowHistory] = useState(false);
   const [showFormulas, setShowFormulas] = useState(false);
   const [selectedFormulaId, setSelectedFormulaId] = useState<string | null>(null);
   const [history, setHistory] = useState<HistoryItem[]>([]);
-  const [formulas, setFormulas] = useState<CustomFormula[]>([]);
+  const [formulas, setFormulas] = useState<CustomFormula[]>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem(FORMULAS_STORAGE_KEY);
+      return saved ? JSON.parse(saved) : [];
+    }
+    return [];
+  });
   const [input, setInput] = useState<string>("");
   const [displayLines, setDisplayLines] = useState<string[]>([]);
   const [result, setResult] = useState<string>("");
@@ -42,6 +49,12 @@ export default function Calculator() {
       localStorage.setItem(VARIABLE_VALUES_KEY, JSON.stringify(variableValues));
     }
   }, [variableValues]);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      localStorage.setItem(FORMULAS_STORAGE_KEY, JSON.stringify(formulas));
+    }
+  }, [formulas]);
 
   const handleClear = () => {
     setInput("");

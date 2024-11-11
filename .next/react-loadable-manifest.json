@@ -1,1 +1,20 @@
-{}
+{
+  "components\\Calculator.tsx -> ./CalcButton": {
+    "id": "components\\Calculator.tsx -> ./CalcButton",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_CalcButton_tsx.js"
+    ]
+  },
+  "components\\Calculator.tsx -> ./CustomFormulas": {
+    "id": "components\\Calculator.tsx -> ./CustomFormulas",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_CustomFormulas_tsx.js"
+    ]
+  },
+  "components\\Calculator.tsx -> ./History": {
+    "id": "components\\Calculator.tsx -> ./History",
+    "files": [
+      "static/chunks/_app-pages-browser_src_components_History_tsx.js"
+    ]
+  }
+}
